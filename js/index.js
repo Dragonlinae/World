@@ -19,22 +19,22 @@ $(function () {
     if (isSin) {
       $.get('css/' + attr + '.css', function (resp) {
         // resp now should contain your CSS file content.
-        targetcolor = resp.split(".color {\r\n    color: ")[1].substring(0, 7);
+        targetcolor = resp.split(".color")[1].split("color: ")[1].substring(0, 7);
         document.getElementById("breaker").style.backgroundColor = targetcolor;
         $('.change-image a button').css('background', targetcolor);
         $('.world-text h2').css('color', targetcolor);
         $('.world-text button').css('color', targetcolor);
-        $('.world-text button').css('border', targetcolor);
+        $('.world-text button').css('border-color', targetcolor);
       });
     } else {
       $.get('css/' + attr + '.css', function (resp) {
         // resp now should contain your CSS file content.
-        targetcolor = resp.split(".color2 {\r\n    color: ")[1].substring(0, 7);
+        targetcolor = resp.split(".color2")[1].split("color: ")[1].substring(0, 7);
         document.getElementById("breaker").style.backgroundColor = targetcolor;
         $('.change-image a button').css('background', targetcolor);
         $('.world-text h2').css('color', targetcolor);
         $('.world-text button').css('color', targetcolor);
-        $('.world-text button').css('border', targetcolor);
+        $('.world-text button').css('border-color', targetcolor);
       });
     }
   });
