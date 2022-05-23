@@ -292,7 +292,13 @@ function randomizeImage(target, character, count) {
   potentials = $(target);
   potentials.each(function () {
     if ($(this).attr('src').includes(character)) {
-      $(this).attr('src', $(this).attr('src').replace(/art\d+/g, "art" + Math.floor(Math.random() * count + 1)));
+      asrc = $(this).attr('src');
+      number = asrc.split("art")[1].split(".")[0];
+      randnum = Math.floor(Math.random() * count) + 1;
+      while (number == randnum) {
+        randnum = Math.floor(Math.random() * count) + 1;
+      }
+      $(this).attr('src', asrc.replace(/art\d+/g, "art" + randnum));
     }
   })
 }
